@@ -42,18 +42,35 @@ namespace HttpRequestCancellationToken
         {
             Console.WriteLine("Application Start");
             Console.WriteLine("Press the Enter key to cancel ...\n");
-            Task cancelTask = Task.Run(()=>
+            try
             {
-                while (Console.ReadKey().Key != ConsoleKey.Enter)
-                {
-                    Console.WriteLine("Press the Enter key to cancel...");
-                }
-                Console.WriteLine("\nEnter key pressed: cancelling downloads. \n");
-                s_cts.Cancel();
-            });
-            
-            Task sumPageSizeTask = SumPageSizeTask();
-            await Task.WhenAny(new[]{cancelTask,sumPageSizeTask});
+                // Task cancelTask = Task.Run(()=>
+                // {
+                //     while (Console.ReadKey().Key != ConsoleKey.Enter)
+                //     {
+                //         Console.WriteLine("Press the Enter key to cancel...");
+                //     }
+                //     Console.WriteLine("\nEnter key pressed: cancelling downloads. \n");
+                //     s_cts.Cancel();
+                    
+                // });
+
+                s_cts.CancelAfter(3000);
+                await SumPageSizeTask();
+                //Task sumPageSizeTask = SumPageSizeTask();
+                //await Task.WhenAny(new[]{cancelTask,sumPageSizeTask});
+                
+            }
+            catch (System.Exception e)
+            {
+                
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                s_cts.Dispose();
+            }
+            Console.WriteLine("Application Ending");
         }
 
         private static async Task SumPageSizeTask()
