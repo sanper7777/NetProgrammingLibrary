@@ -1,7 +1,7 @@
 using System;
 using System.Text.Json.Serialization;
 
-namespace WebAPIClient
+namespace SimpleRestClient
 {
     public class Repository
     {
