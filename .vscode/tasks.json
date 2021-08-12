@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/AsyncAwait/Breakfast/Breakfast.csproj",
+                "${workspaceFolder}/MVC/SimpleMVC/SimpleMVC.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/AsyncAwait/Breakfast/Breakfast.csproj",
+                "${workspaceFolder}/MVC/SimpleMVC//SimpleMVC.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/AsyncAwait/Breakfast/Breakfast.csproj",
+                "${workspaceFolder}/MVC/SimpleMVC//SimpleMVC.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
